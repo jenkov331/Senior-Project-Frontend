@@ -1,0 +1,40 @@
+.converter {
+    font-size: 20px;
+}
+
+.converter select {
+    border-radius: 5px;
+    background-color: orange;
+    border-color: red;
+    height: 25px;
+    width: 38%;
+}
+
+.converter input {
+    border-radius: 5px;
+    background-color: lightblue;
+    border-color: blue;
+    height: 25px;
+    margin-right: 5px;
+    width: 58%;
+    padding: 8px;
+}
+
+.converter p {
+    font-size: 45px;
+    text-align: center;
+    vertical-align: text;
+    font-weight: bold;
+    line-height: 45px;
+    height: 45px;
+}
+
+.converter .type-dropdown{
+    width: 100%;
+    font-size: 25px;
+    height: 35px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    background-color: lightgreen;
+    border-color: green;
+}

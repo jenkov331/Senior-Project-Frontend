@@ -1,0 +1,201 @@
+{
+    "Volume": {
+        "Gallon": {
+            "Quart": 4,
+            "Pint": 8,
+            "Cup": 16,
+            "Fluid Ounce": 128,
+            "Tablespoon": 256,
+            "Teaspoon": 768,
+            "Liter": 3.785411784,
+            "Milliliter": 3785.411784
+        },
+        "Quart": {
+            "Gallon": 0.25,
+            "Pint": 2,
+            "Cup": 4,
+            "Fluid Ounce": 32,
+            "Tablespoon": 64,
+            "Teaspoon": 192,
+            "Liter": 0.946352946,
+            "Milliliter": 946.352946
+        },
+        "Pint": {
+            "Gallon": 0.125,
+            "Quart": 0.5,
+            "Cup": 2,
+            "Fluid Ounce": 16,
+            "Tablespoon": 32,
+            "Teaspoon": 96,
+            "Liter": 0.473176473,
+            "Milliliter": 473.176473
+        },
+        "Cup": {
+            "Gallon": 0.0625,
+            "Quart": 0.25,
+            "Pint": 0.5,
+            "Fluid Ounce": 8,
+            "Tablespoon": 16,
+            "Teaspoon": 48,
+            "Liter": 0.2365882365,
+            "Milliliter": 236.5882365
+        },
+        "Fluid Ounce": {
+            "Gallon": 0.0078125,
+            "Quart": 0.03125,
+            "Pint": 0.0625,
+            "Cup": 0.125,
+            "Tablespoon": 2,
+            "Teaspoon": 6,
+            "Liter": 0.0295735295625,
+            "Milliliter": 29.5735295625
+        },
+        "Tablespoon": {
+            "Gallon": 0.00390625,
+            "Quart": 0.015625,
+            "Pint": 0.03125,
+            "Cup": 0.0625,
+            "Fluid Ounce": 0.5,
+            "Teaspoon": 3,
+            "Liter": 0.01478676478125,
+            "Milliliter": 14.78676478125
+        },
+        "Teaspoon": {
+            "Gallon": 0.0013020829123091248438,
+            "Quart": 0.0052083316492364996,
+            "Pint": 0.010416666666666667,
+            "Cup": 0.0208333333333333333,
+            "Fluid Ounce": 0.16666666666667,
+            "Tablespoon": 0.3333333333333,
+            "Liter": 0.00492892,
+            "Milliliter": 4.92892
+        },
+        "Liter": {
+            "Gallon": 0.2641720523581484,
+            "Quart": 1.056688209432593664,
+            "Pint": 2.11337641886518720,
+            "Cup": 4.2267528377303745,
+            "Fluid Ounce": 33.814022701842997248,
+            "Tablespoon": 67.628045403685994496,
+            "Teaspoon": 202.88420181297324032,
+            "Milliliter": 1000
+        },
+        "Milliliter": {
+            "Gallon": 0.0002641720523581484,
+            "Quart": 0.001056688209432593664,
+            "Pint": 0.00211337641886518720,
+            "Cup": 0.0042267528377303745,
+            "Fluid Ounce": 0.033814022701842997248,
+            "Tablespoon": 0.067628045403685994496,
+            "Teaspoon": 0.20288420181297324032,
+            "Liter": 0.001
+        }
+    },
+    "Length": {
+        "Kilometer": {
+            "Meter": 1000,
+            "Centimeter": 100000,
+            "Mile": 0.621371192237334,
+            "Yard": 0.000568181818182,
+            "Foot": 0.000189393939394,
+            "Inch": 0.000015782828283
+        },
+        "Meter": {
+            "Kilometer": 0.001,
+            "Centimeter": 100,
+            "Mile": 0.000621371192237334,
+            "Yard": 0.000000568181818182,
+            "Foot": 0.000000189393939394,
+            "Inch": 0.000000015782828283
+        },
+        "Centimeter": {
+            "Kilometer": 0.00001,
+            "Meter": 0.01,
+            "Mile": 0.00000621371192237334,
+            "Yard": 0.00000000568181818182,
+            "Foot": 0.00000000189393939394,
+            "Inch": 0.00000000015782828283
+        },
+        "Mile": {
+            "Kilometer": 1.609344,
+            "Meter": 1609.344,
+            "Centimeter": 1609344,
+            "Yard": 1760,
+            "Foot": 5280,
+            "Inch": 63360
+        },
+        "Yard": {
+            "Kilometer": 0.0009144,
+            "Meter": 0.9144,
+            "Centimeter": 91.44,
+            "Mile": 0.000568182,
+            "Foot": 3,
+            "Inch": 36
+        },
+        "Foot": {
+            "Kilometer": 0.0003048,
+            "Meter": 0.3048,
+            "Centimeter": 30.48,
+            "Mile": 0.00018939393939394,
+            "Yard": 0.33333333333333333,
+            "Inch": 12
+        },
+        "Inch": {
+            "Kilometer": 0.0000254,
+            "Meter": 0.0254,
+            "Centimeter": 2.54,
+            "Mile": 0.00015782828282828,
+            "Yard": 0.27777777777777777,
+            "Foot": 0.08333333333333333
+        }
+    },
+    "Mass": {
+        "Ounce": {
+            "Pound": 0.0625,
+            "US Ton": 0.00003125,
+            "Kilogram": 0.028349523125,
+            "Gram": 28.349523125,
+            "Miligram": 28349.523125
+        },
+        "Pound": {
+            "Ounce": 16,
+            "US Ton": 0.0005,
+            "Kilogram": 0.45359237,
+            "Gram": 453.59237,
+            "Miligram": 453592.37
+        },
+        "US Ton": {
+            "Ounce": 32000,
+            "Pound": 2000,
+            "Kilogram": 907.18474,
+            "Gram": 907184.74,
+            "Miligram": 907184740
+        },
+        "Kilogram": {
+            "Ounce": 35.273961949580410880,
+            "Pound": 2.2046226218487758848,
+            "US Ton": 0.0011023113109243879424,
+            "Gram": 1000,
+            "Miligram": 1000000
+        },
+        "Gram": {
+            "Ounce": 0.035273961949580410880,
+            "Pound": 0.0022046226218487758848,
+            "US Ton": 0.0000011023113109243879424,
+            "Kilogram": 0.001,
+            "Miligram": 1000
+        },
+        "Miligram": {
+            "Ounce": 0.000035273961949580410880,
+            "Pound": 0.0000022046226218487758848,
+            "US Ton": 0.0000000011023113109243879424,
+            "Kilogram": 0.000001,
+            "Gram": 0.001
+        }
+    },
+    "Temperature": {
+        "Fahrenheit": {
+            "Celcius": 1
+        }
+    }
+}

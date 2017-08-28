@@ -1,0 +1,11 @@
+.test{
+	margin: 0;
+	background-color: red;
+	color: blue;
+}
+
+.container {
+	margin: 0;
+	border: 10px;
+	border-color: green;
+}
