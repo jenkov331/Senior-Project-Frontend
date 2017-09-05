@@ -11,16 +11,6 @@
     margin-top: 10px;
 }
 
-.icon{
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    height: 38px;
-    width: 38px;
-    padding: 5px;
-    display: inline-block;
-}
-
 .recipe-icon{
     background-repeat: no-repeat;
     background-size: contain;
@@ -32,6 +22,13 @@
     display: inline-block;
 }
 
-.recipe-description img{
+.recipe-description img.icon{
     cursor: inherit;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 38px;
+    width: 38px;
+    padding: 5px;
+    display: inline-block;
 }
