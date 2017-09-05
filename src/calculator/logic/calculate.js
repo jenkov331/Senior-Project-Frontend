@@ -75,7 +75,9 @@ export default function calculate(obj, buttonName) {
         };
       }
       return {
-        operation: null
+        total: operate(obj.total, obj.total, obj.operation),
+        next: null,
+        operation: null,
       }
     } else {
       if (obj.next) {

@@ -15,13 +15,34 @@ import {
 } from 'react-bootstrap'
 import Calculator from '../calculator/component/Calculator'
 import Header from '../header/Header'
+import RecipePreview from '../recipe/preview/RecipePreview.js'
+import Icon from '../images/foodImage.jpg'
 import './App.css';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      response: () => { return []; }
+    }
+
+    fetch('/api/recipes', {
+      method: 'get'
+    }).then((response) => response.json().then((json) => {
+      console.log(json);
+      console.log(this.response);
+      this.setState({ response: () => { return json; } });
+    }));
+  }
+
   Home = () => (
-    <div>
-      <h2>Home</h2>
-    </div>
+    <span>
+      {
+        this.state.response().map((response) => {
+          return <RecipePreview key={response.id} name={response.name} prepTime={response.prepTime} cookTime={response.cookTime} servings={response.servings} imageSrc={Icon} />
+        })
+      }
+    </span>
   )
 
   About = () => (
@@ -82,6 +103,8 @@ class App extends React.Component {
   )
 
   render() {
+    console.log("HHH", this);
+    console.log("HHH", this.state);
     return (
       <Router className="app-component">
         <Grid>
