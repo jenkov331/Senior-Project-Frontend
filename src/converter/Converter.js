@@ -14,31 +14,14 @@ class Converter extends React.Component {
       conversionType,
       valueBeforeConversion: 1,
       unitBeforeConversion,
-      valueAfterConversion: 0,
+      valueAfterConversion: conversionMultiplier,
       unitAfterConversion,
       conversionMultiplier,
       item: ""
     };
   }
 
-  componentDidMount() {
-    this.calculateConversion({ target: { value: 1 } });
-    fetch('http://localhost:56290/api/Home', {
-      method: 'GET',
-      mode: 'no-cors'
-    })
-      .then(function (response) {
-        console.log(response);
-      }).catch(function (error) {
-        console.log('Request failed', error)
-      });
-  }
-
   changeConversionType = (event) => {
-    this.state.item.then((value) => console.log("HERE", value));
-    console.log(this.state.item);
-    console.log(this.state.item.status);
-    console.log(this.state.item.statusText);
     let conversionType = event.target.value;
     let unitBeforeConversion = Object.keys(conversions[conversionType])[0];
     let unitAfterConversion = Object.keys(conversions[conversionType][unitBeforeConversion])[0];
