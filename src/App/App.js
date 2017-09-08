@@ -23,23 +23,26 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      response: () => { return []; }
+      recipes: []
     }
 
     fetch('/api/recipes', {
       method: 'get'
     }).then((response) => response.json().then((json) => {
-      console.log(json);
-      console.log(this.response);
-      this.setState({ response: () => { return json; } });
+      let recipes = [];
+      json.forEach((recipe) => {
+        recipes.push(() => recipe);
+      });
+
+      this.setState({ recipes });
     }));
   }
 
   Home = () => (
     <span>
       {
-        this.state.response().map((response) => {
-          return <RecipePreview key={response.id} name={response.name} prepTime={response.prepTime} cookTime={response.cookTime} servings={response.servings} imageSrc={Icon} />
+        this.state.recipes.map((recipe) => {
+          return <RecipePreview key={recipe().id} recipe={recipe}/>
         })
       }
     </span>
@@ -103,8 +106,6 @@ class App extends React.Component {
   )
 
   render() {
-    console.log("HHH", this);
-    console.log("HHH", this.state);
     return (
       <Router className="app-component">
         <Grid>
@@ -119,6 +120,7 @@ class App extends React.Component {
               <Route path="/about" component={this.About} />
               <Route path="/topics" component={this.Topics} />
               <Route path="/calculator" component={Calculator} />
+              <Route path="/recipes/:id" component={Calculator} />
             </Col>
           </Row>
         </Grid>

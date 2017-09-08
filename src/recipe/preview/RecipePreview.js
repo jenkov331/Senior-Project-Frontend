@@ -4,12 +4,23 @@ import {
     Row,
     Col
 } from 'react-bootstrap';
+import {
+    BrowserRouter as Router,
+    Route,
+    NavLink
+} from 'react-router-dom';
 import Prep from '../../images/ico_prep.png';
 import Cook from '../../images/ico_cook.png';
 import Serve from '../../images/ico_serving.png';
 import './RecipePreview.css';
 
 class RecipePreview extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            recipe: props.recipe
+        }
+    }
     time(time) {
         let minutes = time % 60;
         let hours = (time - minutes) / 60;
@@ -38,42 +49,40 @@ class RecipePreview extends React.Component {
     }
 
     render() {
+        let recipe = this.state.recipe();
         return (
-            <Row className="recipe-preview">
-                <Col sm={3} md={2} xsHidden>
-                    <div className="recipe-icon" style={{ "backgroundImage": `url(${this.props.imageSrc})` }} />
-                </Col>
-                <Col sm={9} md={10}>
-                    <div className="recipe-name">
-                        {this.props.name}
-                    </div>
-                    <Row>
-                        <Col xs={4} smHidden mdHidden lgHidden>
-                            <div className="recipe-icon" style={{ "backgroundImage": `url(${this.props.imageSrc})` }} />
-                        </Col>
-                        <Col xs={8} sm={12}>
-                            <div className="recipe-description">
-                                <img src={Prep} alt="" className="icon" /> <strong> Prep Time: </strong>{this.time(this.props.prepTime)}
-                            </div>
-
-                            <div className="recipe-description">
-                                <img src={Cook} alt="" className="icon" /><strong> Cook Time: </strong>{this.time(this.props.cookTime)}
-                            </div>
-                            <div className="recipe-description">
-                                <img src={Serve} alt="" className="icon" /><strong> Serves: </strong>{this.props.servings}
-                            </div>
-                        </Col>
-                    </Row>
-                </Col>
-            </Row>
+            <NavLink to={`/recipes/${recipe.id}`}>
+                <Row className="recipe-preview">
+                    <Col sm={3} md={2} xsHidden>
+                        <div className="recipe-icon" style={{ "backgroundImage": `url(${recipe.images[0]})` }} />
+                    </Col>
+                    <Col sm={9} md={10}>
+                        <div className="recipe-name">
+                            {recipe.name}
+                        </div>
+                        <Row>
+                            <Col xs={4} smHidden mdHidden lgHidden>
+                                <div className="recipe-icon" style={{ "backgroundImage": `url(${recipe.images[0]})` }} />
+                            </Col>
+                            <Col xs={8} sm={12}>
+                                <div className="recipe-description outter">
+                                    <div className="icon" style={{ "backgroundImage": `url(${Prep})` }} /> <strong> Prep Time: </strong>{this.time(recipe.prepTime)}
+                                </div>
+                                <div className="recipe-description">
+                                    <div className="icon" style={{ "backgroundImage": `url(${Cook})` }} /> <strong> Cook Time: </strong>{this.time(recipe.cookTime)}
+                                </div>
+                                <div className="recipe-description">
+                                    <div className="icon" style={{ "backgroundImage": `url(${Serve})` }} /> <strong> Serves: </strong>{recipe.servings}
+                                </div>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </NavLink>
         );
     }
 }
 RecipePreview.propTypes = {
-    name: PropTypes.string,
-    prepTime: PropTypes.number,
-    cookTime: PropTypes.number,
-    servings: PropTypes.number,
-    imageSrc: PropTypes.string
+    recipe: PropTypes.func
 };
 export default RecipePreview;

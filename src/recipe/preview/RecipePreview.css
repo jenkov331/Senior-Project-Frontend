@@ -9,6 +9,8 @@
     border-color: black;
     box-sizing: content-box;
     margin-top: 10px;
+    color: black;
+    text-decoration: none;
 }
 
 .recipe-icon{
@@ -20,15 +22,18 @@
 
 .recipe-description{
     display: inline-block;
+    line-height: 38px;
 }
 
-.recipe-description img.icon{
+.recipe-description div.icon{
     cursor: inherit;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
+    background-origin: content-box;
     height: 38px;
     width: 38px;
     padding: 5px;
     display: inline-block;
+    vertical-align: top;
 }
