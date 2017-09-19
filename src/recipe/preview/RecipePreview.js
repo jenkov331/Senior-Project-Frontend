@@ -5,8 +5,6 @@ import {
     Col
 } from 'react-bootstrap';
 import {
-    BrowserRouter as Router,
-    Route,
     NavLink
 } from 'react-router-dom';
 import Prep from '../../images/ico_prep.png';
@@ -50,39 +48,51 @@ class RecipePreview extends React.Component {
 
     render() {
         let recipe = this.state.recipe();
-        return (
-            <NavLink to={`/recipes/${recipe.id}`}>
-                <Row className="recipe-preview">
-                    <Col sm={3} md={2} xsHidden>
-                        <div className="recipe-icon" style={{ "backgroundImage": `url(${recipe.images[0]})` }} />
-                    </Col>
-                    <Col sm={9} md={10}>
-                        <div className="recipe-name">
-                            {recipe.name}
-                        </div>
-                        <Row>
-                            <Col xs={4} smHidden mdHidden lgHidden>
-                                <div className="recipe-icon" style={{ "backgroundImage": `url(${recipe.images[0]})` }} />
-                            </Col>
-                            <Col xs={8} sm={12}>
-                                <div className="recipe-description outter">
-                                    <div className="icon" style={{ "backgroundImage": `url(${Prep})` }} /> <strong> Prep Time: </strong>{this.time(recipe.prepTime)}
-                                </div>
-                                <div className="recipe-description">
-                                    <div className="icon" style={{ "backgroundImage": `url(${Cook})` }} /> <strong> Cook Time: </strong>{this.time(recipe.cookTime)}
-                                </div>
-                                <div className="recipe-description">
-                                    <div className="icon" style={{ "backgroundImage": `url(${Serve})` }} /> <strong> Serves: </strong>{recipe.servings}
-                                </div>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-            </NavLink>
+
+        let content = (
+            <Row className={this.props.isLink? "recipe-preview" : "recipe-header"}>
+                <Col sm={3} md={2} xsHidden>
+                    <div className="recipe-icon" style={{ "backgroundImage": `url(${recipe.images[0]})` }} />
+                </Col>
+                <Col sm={9} md={10}>
+                    <div className="recipe-name">
+                        {recipe.name}
+                    </div>
+                    <Row>
+                        <Col xs={4} smHidden mdHidden lgHidden>
+                            <div className="recipe-icon" style={{ "backgroundImage": `url(${recipe.images[0]})` }} />
+                        </Col>
+                        <Col xs={8} sm={12}>
+                            <div className="recipe-description outter">
+                                <div className="icon" style={{ "backgroundImage": `url(${Prep})` }} /> <strong> Prep Time: </strong>{this.time(recipe.prepTime)}
+                            </div>
+                            <div className="recipe-description">
+                                <div className="icon" style={{ "backgroundImage": `url(${Cook})` }} /> <strong> Cook Time: </strong>{this.time(recipe.cookTime)}
+                            </div>
+                            <div className="recipe-description">
+                                <div className="icon" style={{ "backgroundImage": `url(${Serve})` }} /> <strong> Serves: </strong>{recipe.servings}
+                            </div>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
         );
+
+        if (this.props.isLink) {
+            return (
+                <NavLink to={`/recipes/${recipe.id}`}>
+                    {content}
+                </NavLink>
+            );
+        }
+        else {
+            return content;
+        }
     }
 }
+
 RecipePreview.propTypes = {
-    recipe: PropTypes.func
+    recipe: PropTypes.func,
+    isLink: PropTypes.bool
 };
 export default RecipePreview;

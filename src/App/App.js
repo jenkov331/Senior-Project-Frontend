@@ -16,7 +16,7 @@ import {
 import Calculator from '../calculator/component/Calculator'
 import Header from '../header/Header'
 import RecipePreview from '../recipe/preview/RecipePreview.js'
-import Icon from '../images/foodImage.jpg'
+import Recipe from '../recipe/Recipe.js'
 import './App.css';
 
 class App extends React.Component {
@@ -42,7 +42,7 @@ class App extends React.Component {
     <span>
       {
         this.state.recipes.map((recipe) => {
-          return <RecipePreview key={recipe().id} recipe={recipe}/>
+          return <RecipePreview key={recipe().id} recipe={recipe} isLink={true}/>
         })
       }
     </span>
@@ -120,7 +120,7 @@ class App extends React.Component {
               <Route path="/about" component={this.About} />
               <Route path="/topics" component={this.Topics} />
               <Route path="/calculator" component={Calculator} />
-              <Route path="/recipes/:id" component={Calculator} />
+              <Route path="/recipes/:id" component={Recipe} />
             </Col>
           </Row>
         </Grid>
