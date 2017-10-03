@@ -15,9 +15,10 @@ import {
 } from 'react-bootstrap'
 import Calculator from '../calculator/component/Calculator'
 import Header from '../header/Header'
-import RecipePreview from '../recipe/preview/RecipePreview.js'
-import Recipe from '../recipe/Recipe.js'
+import RecipePreview from '../recipe/preview/RecipePreview'
+import Recipe from '../recipe/Recipe'
 import './App.css';
+import Home from '../home/Home'
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class App extends React.Component {
       recipes: []
     }
 
-    fetch('/api/recipes', {
+  /*   fetch('/api/recipes', {
       method: 'get'
     }).then((response) => response.json().then((json) => {
       let recipes = [];
@@ -35,11 +36,11 @@ class App extends React.Component {
       });
 
       this.setState({ recipes });
-    }));
+    })); */
   }
 
-  Home = () => (
-    <span>
+   Home = () => (
+   <span>
       {
         this.state.recipes.map((recipe) => {
           return <RecipePreview key={recipe().id} recipe={recipe} isLink={true}/>
@@ -103,28 +104,48 @@ class App extends React.Component {
     <Popover title="Popover right" id="id">
       <Calculator miniature={true} />
     </Popover>
-  )
+  ) 
+
+
+  renderHeader() {
+    return (
+      <Router className="app-component">
+      <Grid>
+        <Row>
+          <Col>
+            <Header />
+          </Col>
+        </Row>
+        <Row className="app-body">
+          <Col>
+            <Route exact path="/" component={this.Home} />
+            <Route path="/about" component={this.About} />
+            <Route path="/topics" component={this.Topics} />
+            <Route path="/calculator" component={Calculator} />
+            <Route path="/recipes/:id" component={Recipe} />
+          </Col>
+        </Row>
+      </Grid>
+    </Router>
+    ); 
+  }
+
+  renderHome() {
+    return (
+      <Home /> 
+    );
+  }
 
   render() {
     return (
-      <Router className="app-component">
-        <Grid>
-          <Row>
-            <Col>
-              <Header />
-            </Col>
-          </Row>
-          <Row className="app-body">
-            <Col>
-              <Route exact path="/" component={this.Home} />
-              <Route path="/about" component={this.About} />
-              <Route path="/topics" component={this.Topics} />
-              <Route path="/calculator" component={Calculator} />
-              <Route path="/recipes/:id" component={Recipe} />
-            </Col>
-          </Row>
-        </Grid>
-      </Router>
+        <div>
+          <div id="header">
+            {this.renderHeader()}
+          </div>
+          <div id="home">
+            {this.renderHome()}
+          </div>
+        </div>
     );
   }
 }
