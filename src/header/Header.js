@@ -17,7 +17,7 @@ class Header extends React.Component {
             <Navbar collapseOnSelect fixedTop className="test">
                 <Navbar.Header>
                     <Navbar.Brand>
-                        Recipe Sharing Site
+                        Reciprocity
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
